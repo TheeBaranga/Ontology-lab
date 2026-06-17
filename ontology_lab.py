@@ -1,5 +1,5 @@
 # ------------------------------------------
-# Definition of Ontology Classes
+# PART A: Define Ontology Classes
 # ------------------------------------------
 class Student:
     def __init__(self, student_id, name, programme, year):
@@ -32,18 +32,18 @@ class Classroom:
 
 
 # ------------------------------------------
-# Creation of Ontology Objects
+# PART B: Create Ontology Objects
 # ------------------------------------------
 # Students
 student1 = Student("S001", "Mary", "Applied Computer Technology", 2)
-student2 = Student("S002", "Brian", "Computer Science", 2)
-student3 = Student("S003", "Linda", "Information Systems", 3)
+student2 = Student("S002", "Brian", "Software Engineering", 2)
+student3 = Student("S003", "Linda", "Information Systems Technology", 3)
 student4 = Student("S004", "Kalvin", "Applied Computer Technology", 3)
-student5 = Student("S005", "Ryan", "Computer Science", 2)
+student5 = Student("S005", "Ryan", "Software Engineering", 2)
 
 # Lecturers
 lecturer1 = Lecturer("L01", "Dr. Otieno", "Computer Science")
-lecturer2 = Lecturer("L02", "Prof. Sam", "Applied Sciences")
+lecturer2 = Lecturer("L02", "Prof. Simwa", "Applied Sciences")
 lecturer3 = Lecturer("L03", "Dr. Jane", "Information Systems")
 
 # Courses
@@ -56,7 +56,8 @@ course5 = Course("MTH1010", "Calculus I", 3)
 # Departments
 dept1 = Department("D01", "Computer Science")
 dept2 = Department("D02", "Applied Sciences")
-
+dept3 = Department("D03", "Software Engineering")
+dept4 = Department("D04", "Information Systems Technology")
 # Classrooms
 room1 = Classroom("Science 101", 40)
 room2 = Classroom("Science 102", 50)
@@ -77,7 +78,7 @@ enrollments = {
 
 # Relationship: Completed courses (Used for prerequisite reasoning)
 completed_courses = {
-    "Mary": ["IST2020"], # Notice APT3020 is not completed yet, she is currently taking it
+    "Mary": ["IST2020"], 
     "Brian": ["APT3020"],
     "Kalvin": ["APT3020"]
 }
@@ -85,14 +86,14 @@ completed_courses = {
 # Relationship: A lecturer teaches a course
 teaching_assignments = {
     "APT3020": "Dr. Otieno",
-    "IST4040": "Prof. Sam",
+    "IST4040": "Prof. Simwa",
     "APT4040": "Dr. Otieno",
     "CMS3700": "Dr. Jane"
 }
 
 # Relationship: A course belongs to a department
 department_courses = {
-    "Computer Science": ["APT3020", "IST4040", "APT4040", "CMS3700"],
+    "Software Engineering": ["APT3020", "IST4040", "APT4040", "CMS3700"],
     "Applied Sciences": ["MTH1010"]
 }
 
@@ -158,8 +159,8 @@ if __name__ == "__main__":
     print(f"- {get_course_lecturer('APT3020')}")
     print()
 
-    print("Courses in Computer Science Department:")
-    for course in get_department_courses("Computer Science"):
+    print("Courses in Software Engineering Department:")
+    for course in get_department_courses("Software Engineering"):
         print(f"- {course}")
     print()
 
